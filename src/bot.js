@@ -14,9 +14,10 @@ try {
   const stringifing = (input, message) => {
     const res = input.map((person) => {
       person.whoIsVoted = naming(person.whoIsVoted, message);
+      console.log(naming(person.whoIsVoted, message));
       person.votedBy = person.votedBy.map((voter) => naming(voter, message));
     });
-    console.log(JSON.stringify(res, null, 2));
+    console.log(naming(input[0].whoIsVoted, message));
     return JSON.stringify(res, null, 2);
   };
 
