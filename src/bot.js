@@ -42,6 +42,8 @@ try {
         case "stats":
           message.reply(`Stats are ${stringifing(personVoted, message)}`);
           break;
+        default:
+          message.channel.send("No Such Command");
       }
     }
   });
