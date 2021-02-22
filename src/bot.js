@@ -23,6 +23,8 @@ try {
           vote(args, message, personVoted);
         case "ping":
           ping(args, message);
+        case "stats":
+          message.reply(`Stats are ${personVoted}`);
       }
     }
   });
