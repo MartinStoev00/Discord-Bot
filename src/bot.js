@@ -8,7 +8,6 @@ try {
   const client = new Client();
 
   const naming = (id, message) => {
-    console.log(message.guild.members.cache.get(id).nickname);
     return message.guild.members.cache.get(id).nickname;
   };
 
@@ -17,6 +16,7 @@ try {
       person.whoIsVoted = naming(person.whoIsVoted, message);
       person.votedBy = person.votedBy.map((voter) => naming(voter, message));
     });
+    console.log(JSON.stringify(res, null, 2));
     return JSON.stringify(res, null, 2);
   };
 
