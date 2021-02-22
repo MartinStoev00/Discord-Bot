@@ -26,7 +26,7 @@ try {
           ping(args, message);
           break;
         case "stats":
-          message.reply(`Stats are ${stringifing(personVoted)}`);
+          message.reply(`Stats are ${stringifing(personVoted, message)}`);
           break;
       }
     }
@@ -37,14 +37,14 @@ try {
   console.log(err);
 }
 
-const naming = (id) => {
+const naming = (id, message) => {
   console.log(message.guild.members.cache.get(id));
 };
 
-const stringifing = (input) => {
+const stringifing = (input, message) => {
   const res = input.map((person) => {
-    person.whoIsVoted = naming(person.whoIsVoted);
-    person.votedBy = person.votedBy.map((voter) => naming(voter));
+    person.whoIsVoted = naming(person.whoIsVoted, message);
+    person.votedBy = person.votedBy.map((voter) => naming(voter, message));
   });
   return JSON.stringify(res, null, 2);
 };
