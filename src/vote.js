@@ -1,7 +1,7 @@
 module.exports = (args, message, personVoted) => {
   const votesNeeded = 3;
   const { Client } = require("discord.js");
-  const getUser = (id) => new Client.fetchUser(id).username;
+  const getUser = (id) => Client.fetchUser(id).username;
   if (args.length !== 1) return message.reply("Please do not frick me up");
   const electedPerson = args[0].replace(/\D/g, "");
   const member = message.guild.members.cache.get(electedPerson);
