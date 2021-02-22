@@ -6,7 +6,8 @@ module.exports = (args, message) => {
       const times = args[1];
       for (let i = times; i--; ) {
         setTimeout(() => {
-          message.reply(`Come now ${member}`);
+          // message.reply(`Come now ${member}`);
+          message.channel.send(`Come now ${member}`);
         }, 300);
       }
     }
