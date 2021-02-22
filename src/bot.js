@@ -21,10 +21,13 @@ try {
       switch (CMD_NAME) {
         case "vote":
           vote(args, message, personVoted);
+          break;
         case "ping":
           ping(args, message);
+          break;
         case "stats":
-          message.reply(`Stats are ${personVoted}`);
+          message.reply(`Stats are ${JSON.stringify(personVoted, null, 2)}`);
+          break;
       }
     }
   });
