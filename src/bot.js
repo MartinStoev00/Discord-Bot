@@ -7,6 +7,19 @@ try {
   let personVoted = [];
   const client = new Client();
 
+  const naming = (id, message) => {
+    console.log(message.guild.members.cache.get(id).nickname);
+    return message.guild.members.cache.get(id).nickname;
+  };
+
+  const stringifing = (input, message) => {
+    const res = input.map((person) => {
+      person.whoIsVoted = naming(person.whoIsVoted, message);
+      person.votedBy = person.votedBy.map((voter) => naming(voter, message));
+    });
+    return JSON.stringify(res, null, 2);
+  };
+
   setInterval(() => {
     personVoted = [];
   }, 180000);
@@ -36,15 +49,3 @@ try {
 } catch (err) {
   console.log(err);
 }
-
-const naming = (id, message) => {
-  console.log(message.guild.members.cache.get(id));
-};
-
-const stringifing = (input, message) => {
-  const res = input.map((person) => {
-    person.whoIsVoted = naming(person.whoIsVoted, message);
-    person.votedBy = person.votedBy.map((voter) => naming(voter, message));
-  });
-  return JSON.stringify(res, null, 2);
-};
