@@ -26,14 +26,25 @@ try {
           ping(args, message);
           break;
         case "stats":
-          message.reply(`Stats are ${JSON.stringify(personVoted, null, 2)}`);
+          message.reply(`Stats are ${stringifing(personVoted)}`);
           break;
       }
     }
   });
 
   client.login(process.env.DISCORD_BOT);
-  //a
 } catch (err) {
   console.log(err);
 }
+
+const naming = (id) => {
+  console.log(message.guild.members.cache.get(id));
+};
+
+const stringifing = (input) => {
+  const res = input.map((person) => {
+    person.whoIsVoted = naming(person.whoIsVoted);
+    person.votedBy = person.votedBy.map((voter) => naming(voter));
+  });
+  return JSON.stringify(res, null, 2);
+};

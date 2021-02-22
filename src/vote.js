@@ -1,6 +1,5 @@
 module.exports = (args, message, personVoted) => {
   const votesNeeded = 3;
-  const getUser = (id) => message.guild.members.cache.get(id).username;
   if (args.length !== 1) return message.reply("Please do not frick me up");
   const electedPerson = args[0].replace(/\D/g, "");
   const member = message.guild.members.cache.get(electedPerson);
@@ -10,8 +9,8 @@ module.exports = (args, message, personVoted) => {
       .every((personIsVotedId) => personIsVotedId !== electedPerson);
     if (isNotCurrentlyElected) {
       personVoted.push({
-        whoIsVoted: getUser(electedPerson),
-        votedBy: [getUser(message.author.id)],
+        whoIsVoted: electedPerson,
+        votedBy: [message.author.id],
       });
       message.reply(
         `With your vote, now we have ${member} at(1/${votesNeeded}). You have 3 minutes to vote!`
