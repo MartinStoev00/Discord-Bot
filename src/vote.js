@@ -34,7 +34,15 @@ module.exports = (args, message, personVoted) => {
     }
     personVoted.forEach((person, i, self) => {
       if (person.votedBy.length === votesNeeded) {
-        member.voice.kick();
+        member
+          .kick("Mishok")
+          .then(() => {
+            message.reply(`Successfully kicked ${user.tag}`);
+          })
+          .catch((err) => {
+            message.reply("I was unable to kick the member");
+            console.error(err);
+          });
         message.reply(`${member} has been kicked!`);
         person.votedBy = [];
       }
