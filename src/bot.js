@@ -25,6 +25,10 @@ try {
     personVoted = [];
   }, 180000);
 
+  client.on("ready", () => {
+    client.user.setAvatar("./RtVALK0dTwOW2PwHdHFBfg.png");
+  });
+
   client.on("message", (message) => {
     if (message.author.bot) return;
     if (message.content.startsWith(PREFIX)) {
