@@ -26,7 +26,7 @@ try {
   }, 180000);
 
   client.on("ready", () => {
-    client.user.setAvatar("./RtVALK0dTwOW2PwHdHFBfg.png");
+    client.user.setAvatar("/RtVALK0dTwOW2PwHdHFBfg.png");
   });
 
   client.on("message", (message) => {
