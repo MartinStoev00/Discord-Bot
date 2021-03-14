@@ -26,7 +26,9 @@ try {
   }, 180000);
 
   client.on("ready", () => {
-    client.user.setAvatar("/RtVALK0dTwOW2PwHdHFBfg.png");
+    client.user.setAvatar(
+      "https://i1.sndcdn.com/avatars-000358093697-ugs55h-large.jpg"
+    );
   });
 
   client.on("message", (message) => {
