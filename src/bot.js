@@ -6,7 +6,7 @@ try {
   const ping = require("./ping");
   const PREFIX = "$";
   let personVoted = [],
-    ping = false;
+    pinging = false;
   const client = new Client();
 
   const naming = (id, message) => {
@@ -45,10 +45,10 @@ try {
           vote(args, message, personVoted);
           break;
         case "ping":
-          ping(args, message, ping);
+          ping(args, message, pinging);
           break;
         case "unping":
-          ping = false;
+          pinging = false;
           message.reply(`Pinging Stopped`);
           break;
         case "stats":
