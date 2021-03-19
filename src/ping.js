@@ -1,5 +1,6 @@
 module.exports = (args, message, ping) => {
   try {
+    ping = true;
     const electedPerson = args[0].replace(/\D/g, "");
     const member = message.guild.members.cache.get(electedPerson);
     if (member) {

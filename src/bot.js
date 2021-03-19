@@ -45,7 +45,6 @@ try {
           vote(args, message, personVoted);
           break;
         case "ping":
-          ping = true;
           ping(args, message, ping);
           break;
         case "unping":
