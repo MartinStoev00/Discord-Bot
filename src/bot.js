@@ -50,6 +50,7 @@ try {
           break;
         case "unping":
           ping = false;
+          message.reply(`Pinging Stopped`);
           break;
         case "stats":
           message.reply(`Stats are ${stringifing(personVoted, message)}`);
