@@ -5,7 +5,8 @@ try {
   const vote = require("./vote");
   const ping = require("./ping");
   const PREFIX = "$";
-  let personVoted = [];
+  let personVoted = [],
+    ping = false;
   const client = new Client();
 
   const naming = (id, message) => {
@@ -44,7 +45,11 @@ try {
           vote(args, message, personVoted);
           break;
         case "ping":
-          ping(args, message);
+          ping = true;
+          ping(args, message, ping);
+          break;
+        case "unping":
+          ping = false;
           break;
         case "stats":
           message.reply(`Stats are ${stringifing(personVoted, message)}`);
