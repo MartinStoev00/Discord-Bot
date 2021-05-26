@@ -1,5 +1,5 @@
 try {
-  //
+  //asd
   require("dotenv").config();
   const { Client } = require("discord.js");
   const vote = require("./vote");
